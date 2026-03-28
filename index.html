@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exchange Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="banner">
+    <h1>Exchange</h1>
+    <h2>Bielefeld - Montpellier</h2>
+  </header>
+
+  <section class="intro">
+    <h1>Antonia - Auréle</h1>
+    <p>Every day, every hour, every minute and every second until the German exchange partners arrive in Montpellier.</p>
+  </section>
+
+  <section class="countdown">
+    <div id="days">0</div>
+    <div id="hours">0</div>
+    <div id="minutes">0</div>
+    <div id="seconds">0</div>
+  </section>
+
+  <footer>
+    <p>All rights reserved to @Mika Schwengelbeck / save at</p>
+  </footer>
+
+  <script>
+    const countdown = () => {
+      const countDate = new Date("May 5, 2026 19:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = countDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      document.getElementById("days").innerText = Math.floor(gap / day);
+      document.getElementById("hours").innerText = Math.floor((gap % day) / hour);
+      document.getElementById("minutes").innerText = Math.floor((gap % hour) / minute);
+      document.getElementById("seconds").innerText = Math.floor((gap % minute) / second);
+    };
+
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
